@@ -4,20 +4,17 @@ Aplikasi berbasis **Streamlit** untuk menganalisis perbandingan harga rumah
 dengan **Upah Minimum Provinsi (UMP)** di Indonesia, guna melihat tingkat
 keterjangkauan hunian di berbagai wilayah.
 
----
 
 ## 🎯 Tujuan
 - Menganalisis perbandingan harga rumah terhadap UMP
 - Menyajikan data dalam bentuk grafik dan peta (GIS)
 - Memberikan visualisasi yang mudah dipahami
 
----
 
 ## 📊 Sumber Data
 - **Harga Rumah**: hasil web scraping dari situs properti
 - **UMP**: data resmi Upah Minimum Provinsi Indonesia
 
----
 
 ## 🔄 Alur Pengolahan Data
 1. **Scraping** – pengambilan data harga rumah
