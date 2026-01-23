@@ -17,12 +17,15 @@ def mappingKodeWilayah():
     df_mapping = pd.merge(df_kec, df_prov, on='kode_prov', how='left')
     return df_mapping
 
-df_mapping = mappingKodeWilayah()
-df_ump['Provinsi'] = df_ump['Provinsi'].str.upper()
-df_mapping['kecamatan'] = df_mapping['kecamatan'].str.upper()
+def main():
+    df_mapping = mappingKodeWilayah()
+    df_ump['Provinsi'] = df_ump['Provinsi'].str.upper()
+    df_mapping['kecamatan'] = df_mapping['kecamatan'].str.upper()
 
-df_ump = df_ump.rename(columns={'Provinsi': 'provinsi'})
-df_final = pd.merge(df_ump, df_mapping[['kecamatan', 'provinsi']], on='provinsi', how='left')
+    df_ump = df_ump.rename(columns={'Provinsi': 'provinsi'})
+    df_final = pd.merge(df_ump, df_mapping[['kecamatan', 'provinsi']], on='provinsi', how='left')
 
-df_final.to_csv("print.csv", index=False)
+    df_final.to_csv("print.csv", index=False)
+
+    return df_final
 
