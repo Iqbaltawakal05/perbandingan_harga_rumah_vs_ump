@@ -19,6 +19,7 @@ def mappingKodeWilayah():
 
 def main():
     df_ump_local = df_ump
+    df_ump_local['UpahMinimum'] = df_ump_local['UpahMinimum'].str.replace('.', '').astype(int)
     df_mapping = mappingKodeWilayah()
     
     df_ump_local['Provinsi'] = df_ump_local['Provinsi'].str.upper()
@@ -31,4 +32,4 @@ def main():
 
     return df_final
 
-
+main()
