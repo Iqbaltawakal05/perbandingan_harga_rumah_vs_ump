@@ -25,3 +25,4 @@ df_ump = df_ump.rename(columns={'Provinsi': 'provinsi'})
 df_final = pd.merge(df_ump, df_mapping[['kecamatan', 'provinsi']], on='provinsi', how='left')
 
 df_final.to_csv("print.csv", index=False)
+
