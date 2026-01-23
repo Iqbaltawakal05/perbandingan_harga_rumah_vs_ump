@@ -1,4 +1,5 @@
 import pandas as pd
+import mapping_ump
 
 df_mappingUmp = pd.read_csv("./Data/processed/mapping_ump.csv")
 df_rumah = pd.read_csv("./Data/Clean/rumah123_clean.csv")
@@ -24,9 +25,11 @@ def mapppingPrice(text_harga):
         return 0
         
 def main():
-    print(df_rumah['price'])
-    hargaRumah = df_rumah['price'].apply(lambda x: mapppingPrice(x))
-    print(hargaRumah)
+    hargaRumah = df_rumah.copy()
+    hargaRumah['price'] = df_rumah['price'].apply(lambda x: mapppingPrice(x))
+    print(hargaRumah.columns)
+    print(mapping_ump.main().columns)
+
     
 
 main()
