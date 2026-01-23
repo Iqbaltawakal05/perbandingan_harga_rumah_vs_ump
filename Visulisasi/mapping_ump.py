@@ -18,8 +18,8 @@ def mappingKodeWilayah():
     df_kec['kode_prov'] = df_kec['kode_kec'].str.slice(0, 2)
     df_kabupaten['kode_prov'] = df_kabupaten['kode_kab'].str.slice(0, 2)
 
-    df_mapping = pd.merge(df_kec, df_prov, on='kode_prov', how='left')
-    df_final = pd.merge(df_mapping, df_kabupaten, on='kode_prov', how='left')
+    df_mapping = pd.merge(df_kabupaten, df_prov, on='kode_prov', how='left')
+    df_final = pd.merge(df_mapping, df_kec, on='kode_prov', how='left')
     
     return df_final
 
@@ -32,7 +32,7 @@ def main():
     df_mapping['kecamatan'] = df_mapping['kecamatan'].str.upper()
 
     df_ump_local = df_ump_local.rename(columns={'Provinsi': 'provinsi'})
-    df_final = pd.merge(df_ump_local, df_mapping[['kecamatan', 'provinsi', 'kabupaten']], on='provinsi', how='left')
+    df_final = pd.merge(df_ump_local, df_mapping[['kecamatan', 'provinsi', 'kabupaten']], on='provinsi', how='left').drop_duplicates()
 
     df_final.to_csv("./Data/processed/mapping_ump.csv", index=False)
 
