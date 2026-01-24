@@ -79,19 +79,19 @@ def plotBar(datanya):
     
 def main():
     dataMateng = process.main()
-    hargaStatPerProv = dataMateng['hargaStatPerProv']
-    lamaMenabungStatPerProv = dataMateng['lamaMenabungStatPerProv']
-    hargaStatPerKab = dataMateng['hargastatPerKab']
-    lamaMenabungStatPerKab = dataMateng['lamaMenabungStatPerKab']
-    dataUMP2020 = dataMateng['dataUMP2020']
+    hargaProv = dataMateng['hargaStatPerProv']
+    lamaProv = dataMateng['lamaMenabungStatPerProv']
+    hargaKab = dataMateng['hargastatPerKab']
+    lamaKab = dataMateng['lamaMenabungStatPerKab']
+    dataUMP = dataMateng['dataUMP2020']
     
     return {
-        'hargaStatPerProv': visualization(hargaStatPerProv, dataApa='provinsi', topik='Harga Rumah'),
-        'lamaMenabungStatPerProv': visualization(lamaMenabungStatPerProv, dataApa='provinsi', topik='lama menabung'),
-        'hargastatPerKab': visualization(hargaStatPerKab, dataApa='kabupaten', topik='Harga Rumah'),
-        'lamaMenabungStatPerKab': visualization(lamaMenabungStatPerKab, dataApa='kabupaten', topik='lama menabung'),
-        'dataUMP2020': plotBar(dataUMP2020)
+        'hargaStatPerProv': visualization(hargaProv, dataApa='provinsi', topik='Harga Rumah'),
+        'lamaMenabungStatPerProv': visualization(lamaProv, dataApa='provinsi', topik='lama menabung'),
+        'hargastatPerKab': visualization(hargaKab, dataApa='kabupaten', topik='Harga Rumah'),
+        'lamaMenabungStatPerKab': visualization(lamaKab, dataApa='kabupaten', topik='lama menabung'),
+        'dataUMP2020': plotBar(dataUMP)
     }
 
 if __name__ == "__main__":
-    main()
+    print("file ini tidak bisa dijalankan secara langsung, silahkan import sebagai module")
