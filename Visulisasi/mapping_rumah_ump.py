@@ -24,11 +24,13 @@ def mapppingPrice(text_harga):
         
     except Exception:
         return 0
-     
+
+# bersihin nama lokasi dari kata kab, kota, adm dari data mapping
 def bersihkan_nama_kota(text):
     clean = re.sub(r'^(KAB\.?|KOTA|KABUPATEN|ADM\.?)\s+', '', str(text).upper())
     return clean     
 
+# buat cari nama lokasi ke data mapping
 def cari_kabupaten(lokasi_raw, map_keyword_to_real):
     lokasi_upper = str(lokasi_raw).upper()
     
@@ -47,10 +49,11 @@ def main():
     ref_ump['keyword'] = ref_ump['kabupaten'].apply(bersihkan_nama_kota)
     ref_ump = ref_ump.sort_values(by='keyword', key=lambda x: x.str.len(), ascending=False)
     
+    # bikin dicitonary biar bisa search nama lokasinya
     map_keyword_to_real = dict(zip(ref_ump['keyword'], ref_ump['kabupaten']))
     
     hargaRumah['kabupaten_terdeteksi'] = hargaRumah['location'].apply(lambda x: cari_kabupaten(x, map_keyword_to_real))
-
+    
     df_final = pd.merge(
         hargaRumah,
         ref_ump[['kabupaten', 'UpahMinimum', 'provinsi']],
@@ -58,11 +61,10 @@ def main():
         right_on='kabupaten',
         how='left'
     )
-
-    # print(df_final[['location', 'kabupaten_terdeteksi', 'UpahMinimum']])
-    # print(df_final)
+    
     df_final.drop_duplicates(inplace=True)
     df_final.dropna(inplace=True)
+    df_final = df_final.drop(columns=['kabupaten_terdeteksi'])
     df_final.to_csv("./Data/processed/visualisasi.csv", index=False)
     
 
