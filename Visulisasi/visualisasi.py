@@ -58,15 +58,35 @@ def visualization(dataframe, dataApa, topik):
     plt.tight_layout()
     plt.show()
     
+def plotBar(datanya):
+    datanya = datanya.sort_values('UpahMinimum', ascending=False)
+    fig, ax = plt.subplots(figsize=(12, 6))
+    
+    ax.bar(datanya['Provinsi'], datanya['UpahMinimum'], color='red')
+    ax.set_title('Upah Minimum per Provinsi', fontsize=14, fontweight='bold')
+    ax.set_xlabel('Provinsi', fontsize=12)
+    ax.set_ylabel('Upah Minimum (Juta)', fontsize=12)
+    
+    def currency_formatter(x, pos):
+        return f"{int(x):,} Jt"
+    
+    ax.yaxis.set_major_formatter(ticker.FuncFormatter(currency_formatter))
+    
+    plt.xticks(rotation=90)
+    plt.tight_layout()
+    plt.show()
+    
 def main():
     dataMateng = process.main()
     hargaStatPerProv = dataMateng['hargaStatPerProv']
     lamaMenabungStatPerProv = dataMateng['lamaMenabungStatPerProv']
     hargaStatPerKab = dataMateng['hargastatPerKab']
     lamaMenabungStatPerKab = dataMateng['lamaMenabungStatPerKab']
+    dataUMP2020 = dataMateng['dataUMP2020']
     
-    visualization(hargaStatPerProv, 'provinsi', 'Harga Rumah')
-    visualization(lamaMenabungStatPerProv, 'provinsi', 'lama menabung')
+    plotBar(dataUMP2020)
+    # visualization(hargaStatPerProv, 'provinsi', 'Harga Rumah')
+    # visualization(lamaMenabungStatPerProv, 'provinsi', 'lama menabung')
     # visualization(hargaStatPerKab, 'kabupaten', 'Harga Rumah')
     # visualization(lamaMenabungStatPerKab, 'kabupaten', 'lama menabung')
 
