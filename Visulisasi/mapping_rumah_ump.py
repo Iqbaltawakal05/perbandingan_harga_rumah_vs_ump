@@ -65,7 +65,7 @@ def main():
     df_final.drop_duplicates(inplace=True)
     df_final.dropna(inplace=True)
     df_final = df_final.drop(columns=['kabupaten_terdeteksi'])
-    df_final.to_csv("./Data/processed/visualisasi.csv", index=False)
+    df_final.to_csv("./Data/processed/preprocessed.csv", index=False)
     
 
 main()

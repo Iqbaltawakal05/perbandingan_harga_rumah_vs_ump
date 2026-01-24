@@ -1,7 +1,7 @@
 import pandas as pd
-import matplotlib.pyplot as plt
+import mapping_rumah_ump
 
-df_processed = pd.read_csv("./Data/processed/visualisasi.csv", dtype={"UpahMinimum": int, "price": int})
+df_processed = pd.read_csv("./Data/processed/preprocessed.csv", dtype={"UpahMinimum": int, "price": int})
 df_ump = pd.read_csv("./Data/support/Data_UMP.csv")
 
 def keterjangkauan(arg_df_processed):
@@ -9,6 +9,7 @@ def keterjangkauan(arg_df_processed):
     return tahun_menabung.astype(int)
 
 def main():
+    mapping_rumah_ump.main()
     df_final = df_processed.copy()
     dataUMP = df_ump.copy()
     
@@ -25,7 +26,6 @@ def main():
     
     dataUMP['UpahMinimum'] = dataUMP['UpahMinimum'].str.replace('.', '').astype(int)
     
-    print(dataUMP)
     result = {
         'hargaStatPerProv': hargaStatPerProv,
         'lamaMenabungStatPerProv': lamaMenabungStatPerProv,

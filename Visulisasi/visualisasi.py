@@ -4,7 +4,7 @@ import process
 
 def visualization(dataframe, dataApa, topik):        
     df_plot = dataframe.sort_values('mean', ascending=False)
-    print(df_plot.head())
+    
     fig, ax = plt.subplots(figsize=(12, 6))
 
     ax.vlines(x=df_plot[dataApa], 
@@ -92,4 +92,6 @@ def main():
         'lamaMenabungStatPerKab': visualization(lamaMenabungStatPerKab, dataApa='kabupaten', topik='lama menabung'),
         'dataUMP2020': plotBar(dataUMP2020)
     }
-    
+
+if __name__ == "__main__":
+    main()
