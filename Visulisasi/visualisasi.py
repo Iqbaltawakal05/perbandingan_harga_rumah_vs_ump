@@ -56,7 +56,7 @@ def visualization(dataframe, dataApa, topik):
     plt.legend()
 
     plt.tight_layout()
-    plt.show()
+    return fig
     
 def plotBar(datanya):
     datanya = datanya.sort_values('UpahMinimum', ascending=False)
@@ -74,7 +74,8 @@ def plotBar(datanya):
     
     plt.xticks(rotation=90)
     plt.tight_layout()
-    plt.show()
+    
+    return fig
     
 def main():
     dataMateng = process.main()
@@ -84,11 +85,11 @@ def main():
     lamaMenabungStatPerKab = dataMateng['lamaMenabungStatPerKab']
     dataUMP2020 = dataMateng['dataUMP2020']
     
-    plotBar(dataUMP2020)
-    # visualization(hargaStatPerProv, 'provinsi', 'Harga Rumah')
-    # visualization(lamaMenabungStatPerProv, 'provinsi', 'lama menabung')
-    # visualization(hargaStatPerKab, 'kabupaten', 'Harga Rumah')
-    # visualization(lamaMenabungStatPerKab, 'kabupaten', 'lama menabung')
-
+    return {
+        'hargaStatPerProv': visualization(hargaStatPerProv, dataApa='provinsi', topik='Harga Rumah'),
+        'lamaMenabungStatPerProv': visualization(lamaMenabungStatPerProv, dataApa='provinsi', topik='lama menabung'),
+        'hargastatPerKab': visualization(hargaStatPerKab, dataApa='kabupaten', topik='Harga Rumah'),
+        'lamaMenabungStatPerKab': visualization(lamaMenabungStatPerKab, dataApa='kabupaten', topik='lama menabung'),
+        'dataUMP2020': plotBar(dataUMP2020)
+    }
     
-main()
