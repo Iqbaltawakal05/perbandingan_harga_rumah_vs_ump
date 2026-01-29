@@ -66,6 +66,3 @@ def main():
     df_final.dropna(inplace=True)
     df_final = df_final.drop(columns=['kabupaten_terdeteksi'])
     df_final.to_csv("./Data/processed/preprocessed.csv", index=False)
-    
-
-main()
