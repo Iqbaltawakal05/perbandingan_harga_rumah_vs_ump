@@ -93,5 +93,11 @@ def main():
         'dataUMP2020': plotBar(dataUMP)
     }
 
+def hasil():
+    visual_data = main()
+    
+    plt.show()
+    
+
 if __name__ == "__main__":
-    print("file ini tidak bisa dijalankan secara langsung, silahkan import sebagai module")
+    hasil()
