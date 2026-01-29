@@ -12,15 +12,15 @@ df = df.drop_duplicates()
 df = df.dropna(subset=["title", "price"])
 
 df["title"] = (
-    df["title"]
-    .astype(str)
-    .str.replace("\n", " ", regex=False)
-    .str.replace('"', "", regex=False)
-    .str.replace("'", "", regex=False)
-    .str.strip()
-)
+     df["title"] 
+     .astype(str) 
+     .str.replace("\n", " ", regex=False) 
+     .str.replace('"', "", regex=False) 
+     .str.replace("'", "", regex=False) 
+     .str.strip() )
 
 df["price"] = df["price"].astype(str)
+
 df["price"] = df["price"].str.split("-").str[0]
 
 df["price"] = (
