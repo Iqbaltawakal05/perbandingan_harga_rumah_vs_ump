@@ -14,5 +14,5 @@ summary_df = df.groupby('kabupaten').agg(
 # Rounding
 summary_df['average_price'] = summary_df['average_price'].round(2)
 
-summary_df.to_csv("./GIs/Data/grouped.csv", index=False)
+summary_df.to_csv("./GIS/Data/grouped.csv", index=False)
 print("Done")
