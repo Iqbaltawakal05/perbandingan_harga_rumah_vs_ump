@@ -1,5 +1,5 @@
 import pandas as pd
-import mapping_ump
+from . import mapping_ump
 import re
 
 df_mappingUmp = pd.read_csv("./Data/processed/mapping_ump.csv")

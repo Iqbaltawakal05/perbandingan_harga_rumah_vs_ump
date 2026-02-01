@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
-import process
+from . import process
 
 def visualization(dataframe, dataApa, topik):        
     df_plot = dataframe.sort_values('mean', ascending=False)

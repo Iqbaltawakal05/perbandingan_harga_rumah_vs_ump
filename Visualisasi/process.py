@@ -1,5 +1,5 @@
 import pandas as pd
-import mapping_rumah_ump
+from . import mapping_rumah_ump
 
 df_processed = pd.read_csv("./Data/processed/preprocessed.csv", dtype={"UpahMinimum": int, "price": int})
 df_ump = pd.read_csv("./Data/support/Data_UMP.csv")
