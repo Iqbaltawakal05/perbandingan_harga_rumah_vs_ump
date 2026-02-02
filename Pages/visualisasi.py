@@ -7,7 +7,6 @@ def load_figures():
     return visualisasi.main()
 
 def render():
-    st.title("Visualisasi Harga Rumah vs UMP")
 
     pilihan = st.selectbox(
         "Pilih visualisasi",

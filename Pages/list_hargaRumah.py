@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 
 def render():
-    st.title("Daftar Harga Rumah")
 
     df = pd.read_csv("Data/Clean/rumah123_clean.csv")
     df.columns = df.columns.str.strip().str.lower()

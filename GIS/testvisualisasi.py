@@ -5,7 +5,6 @@ import geopandas as gpd
 import pandas as pd
 
 st.set_page_config(layout="wide")
-st.title("Peta Kabupaten Indonesia beserta Harga Properti perKabupaten")
 
 # Data Processing (Inner Join)
 @st.cache_data
