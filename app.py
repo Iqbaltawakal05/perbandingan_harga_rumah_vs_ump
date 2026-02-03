@@ -122,7 +122,6 @@ if selected == "Daftar Harga":
 
     df_ump = pd.read_csv("Data/processed/mapping_ump.csv")
 
-    # Ambil UMP per provinsi (angka)
     df_ump_prov = (
         df_ump
         .groupby("provinsi", as_index=False)
@@ -130,7 +129,6 @@ if selected == "Daftar Harga":
         .sort_values("UpahMinimum", ascending=False)
     )
 
-    # Simpan versi angka untuk logika, versi Rp untuk tampilan
     df_ump_prov["UMP"] = df_ump_prov["UpahMinimum"].apply(
         lambda x: f"Rp {int(x):,}".replace(",", ".")
     )
