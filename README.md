@@ -27,4 +27,5 @@ keterjangkauan hunian di berbagai wilayah.
 ## ▶️ Cara Menjalankan Aplikasi
 ```bash
 pip install -r requirements.txt
+python -m playwright install
 streamlit run app.py

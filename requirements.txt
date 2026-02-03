@@ -1,3 +1,8 @@
-pytest-playwright
+streamlit>=1.30
 pandas
-matplotlib.pyplot
+matplotlib
+playwright
+geopandas
+folium
+streamlit-folium
+streamlit-option-menu
