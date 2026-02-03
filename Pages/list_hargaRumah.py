@@ -12,7 +12,7 @@ def render():
 
     st.dataframe(
         display_df,
-        use_container_width=True,
+        width="stretch",
         column_config={
             "link": st.column_config.LinkColumn(
                 "Lihat Rumah"
