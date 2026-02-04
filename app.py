@@ -117,27 +117,27 @@ if selected == "Daftar Harga":
 
     with tab2:
         st.subheader("Tabel UMP")
-    st.caption(
-        "Catatan: UMP ditetapkan pada tingkat provinsi, "
-        "sehingga tabel ini hanya menampilkan data per provinsi."
-    )
+        st.caption(
+            "Catatan: UMP ditetapkan pada tingkat provinsi, "
+            "sehingga tabel ini hanya menampilkan data per provinsi."
+        )
 
-    df_ump = pd.read_csv("Data/processed/mapping_ump.csv")
+        df_ump = pd.read_csv("Data/processed/mapping_ump.csv")
 
-    df_ump_prov = (
-        df_ump
-        .groupby("provinsi", as_index=False)
-        .agg({"UpahMinimum": "first"})
-        .sort_values("UpahMinimum", ascending=False)
-    )
+        df_ump_prov = (
+            df_ump
+            .groupby("provinsi", as_index=False)
+            .agg({"UpahMinimum": "first"})
+            .sort_values("UpahMinimum", ascending=False)
+        )
 
-    df_ump_prov["UMP"] = df_ump_prov["UpahMinimum"].apply(
-        lambda x: f"Rp {int(x):,}".replace(",", ".")
-    )
+        df_ump_prov["UMP"] = df_ump_prov["UpahMinimum"].apply(
+            lambda x: f"Rp {int(x):,}".replace(",", ".")
+        )
 
-    df_ump_prov = df_ump_prov.drop(columns="UpahMinimum")
+        df_ump_prov = df_ump_prov.drop(columns="UpahMinimum")
 
-    st.dataframe(df_ump_prov, width="stretch")
+        st.dataframe(df_ump_prov, width="stretch")
 
 elif selected == "Visualisasi":
     st.title(" Visualisasi Harga Rumah VS UMP")
