@@ -1,5 +1,7 @@
 import streamlit as st
-from Pages import visualisasi, gis, list_hargaRumah
+from Pages import gis
+from Pages import list_hargaRumah
+from Pages import visualisasi
 from streamlit_option_menu import option_menu
 import pandas as pd
 
