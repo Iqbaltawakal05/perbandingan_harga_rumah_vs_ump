@@ -1,2 +1,4 @@
+from GIS import testvisualisasi
+
 def render():
-    import GIS.testvisualisasi
+    testvisualisasi.main()
