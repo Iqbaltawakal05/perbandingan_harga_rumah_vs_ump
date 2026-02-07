@@ -43,6 +43,9 @@ with st.sidebar:
 
     - **Kode Wilayah Indonesia**  
     [kodewilayah.id](https://kodewilayah.id/)
+                        
+    - **Batas Wilayah Administrasi Indonesia**  
+    [batas-admin.geoit.dev](https://batas-admin.geoit.dev/)
     """)
     
 if selected == "Beranda":
